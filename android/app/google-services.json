@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "120181101804",
+    "project_id": "blopz-aa003",
+    "storage_bucket": "blopz-aa003.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120181101804:android:65a9d835fb3f7fa59981c9",
+        "android_client_info": {
+          "package_name": "com.premiumesowp.blopz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "120181101804-o4i2k8pm67ljl6hbb7kbglgerrv60tjd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaaZguSs1vH9z3FXpupTQBnbzzhnIOQkM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "120181101804-o4i2k8pm67ljl6hbb7kbglgerrv60tjd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
