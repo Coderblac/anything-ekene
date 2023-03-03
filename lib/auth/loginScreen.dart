@@ -59,76 +59,77 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Scaffold(
-      body: SafeArea(
-          child: Center(
-        child: SingleChildScrollView(
-          child: Card(
-            child: Container(
-              height: size.height * 1.0,
-              width: size.width * 1.0,
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: size.height * 0.05,
-                  ),
-                  Container(
-                    height: size.height * 0.15,
-                    width: size.width * 0.3,
-                    decoration: BoxDecoration(
-                      color: logoWhiteBackground,
-                      borderRadius: BorderRadius.circular(40),
+    return GestureDetector(
+      onTap: () {
+        FocusScope.of(context).unfocus();
+      },
+      child: Scaffold(
+        body: SafeArea(
+            child: Center(
+          child: SingleChildScrollView(
+            child: Card(
+              child: Container(
+                height: size.height * 1.0,
+                width: size.width * 1.0,
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: size.height * 0.05,
                     ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10, horizontal: 30),
-                      child: Image.asset(
-                        'assets/images/blopz_logo_single.png',
+                    Container(
+                      height: size.height * 0.15,
+                      width: size.width * 0.3,
+                      decoration: BoxDecoration(
+                        color: logoWhiteBackground,
+                        borderRadius: BorderRadius.circular(40),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 10, horizontal: 30),
+                        child: Image.asset(
+                          'assets/images/blopz_logo_single.png',
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    width: size.width * 0.8,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Column(
-                          children: [
-                            Text(
-                              'Welcome',
-                              style: boldHheading.copyWith(
-                                  color: logoOrange, fontSize: 25),
-                            ),
-                            Container(
-                              height: size.height * 0.0025,
-                              width: size.width * 0.27,
-                              color: logoOrange,
-                            )
-                          ],
-                        ),
-                        SizedBox(
-                          width: size.width * 0.015,
-                        ),
-                        Text(
-                          'Back',
-                          style: boldHheading.copyWith(
-                              color: Colors.black, fontSize: 25),
-                        ),
-                      ],
+                    SizedBox(
+                      width: size.width * 0.8,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                'Welcome',
+                                style: boldHheading.copyWith(
+                                    color: logoOrange, fontSize: 25),
+                              ),
+                              Container(
+                                height: size.height * 0.0025,
+                                width: size.width * 0.27,
+                                color: logoOrange,
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            width: size.width * 0.015,
+                          ),
+                          Text(
+                            'Back',
+                            style: boldHheading.copyWith(
+                                color: Colors.black, fontSize: 25),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  minVetSpacing,
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black.withOpacity(0.4)),
-                    ),
-                    width: size.width * .8,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 5),
-                      child: TextField(
-                        controller: _emailController,
-                        decoration: InputDecoration(
+                    minVetSpacing,
+                    Container(
+                      width: size.width * .8,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 5),
+                        child: TextField(
+                          controller: _emailController,
+                          decoration: InputDecoration(
                             prefixIcon: Padding(
                               padding:
                                   const EdgeInsets.only(bottom: 6, left: 5),
@@ -136,166 +137,173 @@ class _LoginPageState extends State<LoginPage> {
                                 Icons.person_outline,
                               ),
                             ),
-                            border: InputBorder.none,
-                            hintText: 'email',
-                            hintStyle: regularText),
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.black)),
+
+                            // labelText: 'Email or Phone number',
+                            label: Text('Email or Phone Number'),
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                  minVetSpacing,
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(color: Colors.black.withOpacity(0.4)),
-                    ),
-                    width: size.width * .8,
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 5),
-                      child: TextField(
-                        controller: _passwordController,
-                        decoration: InputDecoration(
-                            prefixIcon: Padding(
-                              padding:
-                                  const EdgeInsets.only(bottom: 6, left: 5),
-                              child: Icon(
-                                Icons.lock_outline,
+                    minVetSpacing,
+                    Container(
+                      width: size.width * .8,
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 5),
+                        child: TextField(
+                          controller: _passwordController,
+                          decoration: InputDecoration(
+                              prefixIcon: Padding(
+                                padding:
+                                    const EdgeInsets.only(bottom: 6, left: 5),
+                                child: Icon(
+                                  Icons.lock_outline,
+                                ),
                               ),
-                            ),
-                            hintText: 'Password',
-                            hintStyle: regularText),
+                              label: Text('Password'),
+                              border: OutlineInputBorder()),
+                        ),
                       ),
                     ),
-                  ),
-                  SizedBox(height: size.height * 0.02),
-                  SizedBox(
-                    width: size.width * 0.8,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+                    SizedBox(height: size.height * 0.02),
+                    SizedBox(
+                      width: size.width * 0.8,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          InkWell(
+                            onTap: () {
+                              Navigator.push(context,
+                                  MaterialPageRoute(builder: (context) {
+                                return ForgotPasswordPage();
+                              }));
+                            },
+                            child: Text(
+                              ' Forgot Password?',
+                              style: TextStyle(
+                                  color: logoBlue, fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    minVetSpacing,
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: GestureDetector(
+                        onTap: signIn,
+                        // () {
+                        //   Navigator.pushAndRemoveUntil(context,
+                        //       MaterialPageRoute(builder: (_) {
+                        //     return HomeScreen();
+                        //   }), (route) => false);
+                        // },
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: logoOrange.withOpacity(0.8),
+                              borderRadius: BorderRadius.circular(10)),
+                          width: size.width * .7,
+                          height: size.height * .06,
+                          child: Center(
+                            child: Text('Login',
+                                style: boldregularText.copyWith(
+                                    color: Colors.white)),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: size.height * 0.04,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
+                        Text('Don\'t have an Account?'),
                         InkWell(
                           onTap: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
-                              return ForgotPasswordPage();
+                              return SignUpOption();
                             }));
                           },
                           child: Text(
-                            ' Forgot Password?',
+                            ' Register Now',
                             style: TextStyle(
-                                color: logoBlue, fontWeight: FontWeight.bold),
+                                color: logoOrange, fontWeight: FontWeight.bold),
                           ),
                         ),
                       ],
                     ),
-                  ),
-                  minVetSpacing,
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: GestureDetector(
-                      onTap: signIn,
-                      // () {
-                      //   Navigator.pushAndRemoveUntil(context,
-                      //       MaterialPageRoute(builder: (_) {
-                      //     return HomeScreen();
-                      //   }), (route) => false);
-                      // },
+                    SizedBox(height: size.height * 0.03),
+                    InkWell(
+                      onTap: () {},
                       child: Container(
+                        padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
-                            color: logoOrange.withOpacity(0.8),
-                            borderRadius: BorderRadius.circular(10)),
-                        width: size.width * .7,
-                        height: size.height * .06,
-                        child: Center(
-                          child: Text('Login',
-                              style: boldregularText.copyWith(
-                                  color: Colors.white)),
+                          border:
+                              Border.all(color: Colors.black.withOpacity(0.5)),
+                          color: Colors.white,
                         ),
+                        height: size.height * .055,
+                        width: size.width * 0.7,
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Image.asset('assets/images/google_logo.png'),
+                              midHorzSpacing,
+                              Container(
+                                width: size.width * .4,
+                                child: Text(
+                                  'Login with Google',
+                                  style: boldregularText.copyWith(
+                                      color: Colors.black),
+                                ),
+                              )
+                            ]),
                       ),
                     ),
-                  ),
-                  SizedBox(
-                    height: size.height * 0.04,
-                  ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text('Don\'t have an Account?'),
-                      InkWell(
-                        onTap: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return SignUpOption();
-                          }));
-                        },
-                        child: Text(
-                          ' Register Now',
-                          style: TextStyle(
-                              color: logoOrange, fontWeight: FontWeight.bold),
+                    SizedBox(height: size.height * 0.03),
+                    InkWell(
+                      onTap: () {},
+                      child: Container(
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                          border:
+                              Border.all(color: Colors.black.withOpacity(0.5)),
+                          color: Colors.white,
                         ),
+                        height: size.height * .055,
+                        width: size.width * 0.7,
+                        child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              SizedBox(
+                                width: 10,
+                              ),
+                              Image.asset('assets/images/facebook.png'),
+                              midHorzSpacing,
+                              Container(
+                                width: size.width * .4,
+                                child: Text(
+                                  'Login with Facebook',
+                                  style: boldregularText.copyWith(
+                                      color: Colors.black),
+                                ),
+                              )
+                            ]),
                       ),
-                    ],
-                  ),
-                  SizedBox(height: size.height * 0.03),
-                  InkWell(
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        border:
-                            Border.all(color: Colors.black.withOpacity(0.5)),
-                        color: Colors.white,
-                      ),
-                      height: size.height * .055,
-                      width: size.width * 0.8,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Image.asset('assets/images/google_logo.png'),
-                            minHorzSpacing,
-                            Text(
-                              'Login with Google',
-                              style:
-                                  boldregularText.copyWith(color: Colors.black),
-                            )
-                          ]),
                     ),
-                  ),
-                  SizedBox(height: size.height * 0.03),
-                  InkWell(
-                    onTap: () {},
-                    child: Container(
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                        border:
-                            Border.all(color: Colors.black.withOpacity(0.5)),
-                        color: Colors.white,
-                      ),
-                      height: size.height * .055,
-                      width: size.width * 0.8,
-                      child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Image.asset('assets/images/google_logo.png'),
-                            minHorzSpacing,
-                            Text(
-                              'Login with Facebook',
-                              style:
-                                  boldregularText.copyWith(color: Colors.black),
-                            )
-                          ]),
-                    ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           ),
-        ),
-      )),
+        )),
+      ),
     );
   }
 }
